@@ -40,7 +40,7 @@ import {
 // ── EmailJS Config ───────────────────────────────────────────────
 const EMAILJS_SERVICE_ID = "service_c1s4qpa";   // ganti dengan Service ID dari emailjs.com
 const EMAILJS_TEMPLATE_ID = "template_xtixwxk"; // ganti dengan Template ID dari emailjs.com
-const EMAILJS_PUBLIC_KEY = "T8N5YFYYd1SUnzTug";   // ganti dengan Public Key dari emailjs.com
+const EMAILJS_PUBLIC_KEY = "T8N5YFYYd1SUnzTug";   // ganti dengan Public Key dari emailjs.com d
 
 // ── Data ──────────────────────────────────────────────────────────
 const NAV_LINKS = [
