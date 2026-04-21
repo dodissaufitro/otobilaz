@@ -66,7 +66,7 @@ const SERVICES = [
     color: "from-violet-500/15 to-purple-600/15",
     border: "border-violet-500/25",
     glowColor: "rgba(139,92,246,0.2)",
-    img: "https://images.unsplash.com/photo-1601362840469-51e4d8d59085?auto=format&fit=crop&q=80&w=800",
+    img: "/image/image.png",
   },
   {
     key: "khusus",
@@ -500,7 +500,7 @@ export default function App() {
               >
                 <Card3D className="rounded-2xl" tilt={5}>
                   <div className="aspect-[4/3] rounded-2xl overflow-hidden relative" style={{ boxShadow: "0 40px 100px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.08)" }}>
-                    <img src="https://images.unsplash.com/photo-1601362840469-51e4d8d59085?auto=format&fit=crop&q=80&w=1000" alt="Detailing profesional" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                    <img src="/image/image.png" alt="Detailing profesional" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
                     <div className="absolute inset-0 bg-gradient-to-t from-white/20 to-transparent" />
                   </div>
                 </Card3D>
