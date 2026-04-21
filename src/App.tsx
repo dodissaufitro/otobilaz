@@ -98,7 +98,7 @@ const BRANCHES = [
     address: "53H3+G44 Jogan, Jl. Raya Pati-Gabus, Area Sawah, Tambahmulyo, Kec. Pati, Kabupaten Pati, Jawa Tengah 59173",
     phone: "0852-9100-7727",
     hours: "Setiap Hari 07.00 – 17.30 WIB",
-    img: "/image/home_service.png",
+    img: "/image/pati.png",
     maps: "https://maps.app.goo.gl/3Qs8Lvp31gnV59N77?g_st=iw",
   },
   {
