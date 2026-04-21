@@ -55,7 +55,7 @@ const SERVICES = [
     color: "from-cyan-500/15 to-blue-600/15",
     border: "border-cyan-500/25",
     glowColor: "rgba(6,182,212,0.2)",
-    img: "https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&q=80&w=800",
+    img: "/image/cuci_mobil.png",
   },
   {
     key: "detailing",
@@ -77,7 +77,7 @@ const SERVICES = [
     color: "from-emerald-500/15 to-teal-600/15",
     border: "border-emerald-500/25",
     glowColor: "rgba(16,185,129,0.2)",
-    img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&q=80&w=800",
+    img: "/image/home_service.png",
   },
 ];
 
@@ -98,7 +98,7 @@ const BRANCHES = [
     address: "53H3+G44 Jogan, Jl. Raya Pati-Gabus, Area Sawah, Tambahmulyo, Kec. Pati, Kabupaten Pati, Jawa Tengah 59173, Indonesia",
     phone: "+62 812-0000-0001",
     hours: "08:00 – 20:00 WIB",
-    img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&q=80&w=600",
+    img: "/image/home_service.png",
     maps: "https://maps.app.goo.gl/3Qs8Lvp31gnV59N77?g_st=iw",
   },
   {
@@ -108,7 +108,8 @@ const BRANCHES = [
     address: "Jl. Cemara Raya, Jakasampurna, Kec. Bekasi Barat, Kota Bekasi, Jawa - Barat 17145",
     phone: "0817-1717-3338",
     hours: "07:00 – 21:00 WIB",
-    img: "https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&q=80&w=600",
+    img: "/image/otobilaz_jakarta.png",
+    maps: "https://maps.google.com/?q=Jl+Cemara+Raya+Jakasampurna+Bekasi+Barat+Kota+Bekasi",
   },
 ];
 
@@ -359,13 +360,13 @@ export default function App() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.4 }}
                   className="block bg-gradient-to-r from-cyan-400 via-blue-400 to-violet-400 bg-clip-text text-transparent"
-                >Mobil Elite</motion.span>
+                >Otobilaz Carwash & Detailing</motion.span>
                 <motion.span
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.5 }}
                   className="block text-slate-600 text-4xl md:text-5xl font-bold mt-2"
-                >di Indonesia.</motion.span>
+                ></motion.span>
               </h1>
 
               <motion.p
@@ -499,9 +500,12 @@ export default function App() {
                 transition={{ duration: 0.7 }}
               >
                 <Card3D className="rounded-2xl" tilt={5}>
-                  <div className="aspect-[4/3] rounded-2xl overflow-hidden relative" style={{ boxShadow: "0 40px 100px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.08)" }}>
-                    <img src="/image/image.png" alt="Detailing profesional" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-white/20 to-transparent" />
+                  <div className="aspect-[4/3] rounded-2xl overflow-hidden relative group" style={{ boxShadow: "0 40px 100px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.08)" }}>
+                    <img src="/image/image.png" alt="Detailing profesional" className="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-700 ease-in-out" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+                    <div className="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                      <span className="text-white text-xs font-black uppercase tracking-widest bg-cyan-500/80 px-3 py-1 rounded-full backdrop-blur-sm">Detailing Premium</span>
+                    </div>
                   </div>
                 </Card3D>
               </motion.div>
@@ -577,8 +581,9 @@ export default function App() {
                             Booking Layanan Ini
                           </Button>
                         </div>
-                        <div className="min-h-[260px] overflow-hidden md:rounded-r-2xl">
-                          <img src={s.img} alt={s.title} className="w-full h-full object-cover opacity-75 hover:opacity-90 transition-opacity duration-500" referrerPolicy="no-referrer" />
+                        <div className="min-h-[280px] max-h-[560px] overflow-hidden md:rounded-r-2xl relative group">
+                          <img src={s.img} alt={s.title} className="w-full h-full object-cover opacity-80 scale-100 group-hover:scale-110 group-hover:opacity-100 transition-all duration-700 ease-in-out" />
+                          <div className="absolute inset-0 bg-gradient-to-l from-transparent to-black/10 group-hover:to-transparent transition-all duration-500" />
                         </div>
                       </div>
                     </div>
@@ -641,7 +646,7 @@ export default function App() {
                   <Card3D className="rounded-2xl h-full" tilt={6}>
                     <div className="rounded-2xl bg-white border border-slate-200 overflow-hidden h-full hover:border-cyan-400 transition-colors shadow-sm">
                       <div className="aspect-video overflow-hidden relative">
-                        <img src={b.img} alt={b.name} className="w-full h-full object-cover opacity-65 hover:opacity-80 transition-opacity duration-500" referrerPolicy="no-referrer" />
+                        <img src={b.img} alt={b.name} className="w-full h-full object-cover opacity-70 scale-100 hover:scale-110 hover:opacity-90 transition-all duration-700 ease-in-out" />
                         <div className="absolute top-3 right-3 bg-emerald-500/90 text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-full">Buka</div>
                       </div>
                       <div className="p-6">
@@ -650,7 +655,7 @@ export default function App() {
                           <p className="text-slate-700 text-sm">{b.region}</p>
                         </div>
                         <div className="space-y-2.5 text-sm text-slate-800 mb-5">
-                          <div className="flex items-start gap-2.5"><MapPin className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />{b.address}</div>
+                          <div className="flex items-start gap-2.5"><MapPin className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />{b.maps ? (<a href={b.maps} target="_blank" rel="noopener noreferrer" className="hover:text-cyan-500 transition-colors cursor-pointer">{b.address}</a>) : b.address}</div>
                           <div className="flex items-center gap-2.5"><Phone className="w-4 h-4 text-cyan-400 shrink-0" /><a href={`tel:${b.phone.replace(/\s/g, "")}`} className="hover:text-cyan-400 transition-colors">{b.phone}</a></div>
                           <div className="flex items-center gap-2.5"><Clock className="w-4 h-4 text-cyan-400 shrink-0" />{b.hours}</div>
                         </div>
