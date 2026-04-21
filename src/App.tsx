@@ -55,7 +55,7 @@ const SERVICES = [
     color: "from-cyan-500/15 to-blue-600/15",
     border: "border-cyan-500/25",
     glowColor: "rgba(6,182,212,0.2)",
-    img: "/image/cuci_mobil.png",
+    img: "/image/cuci_mobil2.png",
   },
   {
     key: "detailing",
@@ -73,7 +73,7 @@ const SERVICES = [
     title: "Solusi Khusus",
     description: "Layanan perawatan fleksibel termasuk Home Service langsung di rumah Anda.",
     icon: ShieldCheck,
-    details: ["Home Service", "Pick-up & Delivery", "Special Vehicle Care", "Corporate Fleet"],
+    details: ["Home Service", "Layanan PPF & Kaca Film SolarGuard", "Vkool & UFilm", "Special Vehicle Care", "Corporate Fleet"],
     color: "from-emerald-500/15 to-teal-600/15",
     border: "border-emerald-500/25",
     glowColor: "rgba(16,185,129,0.2)",
@@ -95,9 +95,9 @@ const BRANCHES = [
     name: "Semarang",
     region: "Jawa Tengah",
     services: ["Carwash"],
-    address: "53H3+G44 Jogan, Jl. Raya Pati-Gabus, Area Sawah, Tambahmulyo, Kec. Pati, Kabupaten Pati, Jawa Tengah 59173, Indonesia",
-    phone: "+62 812-0000-0001",
-    hours: "08:00 – 20:00 WIB",
+    address: "53H3+G44 Jogan, Jl. Raya Pati-Gabus, Area Sawah, Tambahmulyo, Kec. Pati, Kabupaten Pati, Jawa Tengah 59173",
+    phone: "0852-9100-7727",
+    hours: "Setiap Hari 07.00 – 17.30 WIB",
     img: "/image/home_service.png",
     maps: "https://maps.app.goo.gl/3Qs8Lvp31gnV59N77?g_st=iw",
   },
@@ -107,7 +107,7 @@ const BRANCHES = [
     services: ["Carwash", "Detailing & Coating", "Cafe"],
     address: "Jl. Cemara Raya, Jakasampurna, Kec. Bekasi Barat, Kota Bekasi, Jawa - Barat 17145",
     phone: "0817-1717-3338",
-    hours: "07:00 – 21:00 WIB",
+    hours: "Setiap Hari 07.00 – 22.00 WIB",
     img: "/image/otobilaz_jakarta.png",
     maps: "https://maps.google.com/?q=Jl+Cemara+Raya+Jakasampurna+Bekasi+Barat+Kota+Bekasi",
   },
@@ -257,10 +257,7 @@ export default function App() {
       {/* ── Header ──────────────────────────────────────────── */}
       <header className="fixed top-0 w-full z-50 h-20 px-4 md:px-16 flex items-center justify-between bg-white/80 backdrop-blur-2xl border-b border-slate-200/80">
         <a href="#" className="flex items-center gap-2.5">
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center shadow-lg shadow-cyan-500/40">
-            <Car className="w-4 h-4 text-white" />
-          </div>
-          <span className="text-xl font-black tracking-tight text-slate-900">OTOBILAZ</span>
+          <img src="/image/otobilaz_logo.png" alt="Otobilaz Logo" className="h-14 w-auto object-contain" />
         </a>
 
         <nav className="hidden md:flex items-center gap-8">
@@ -349,24 +346,19 @@ export default function App() {
               </motion.div>
 
               <h1 className="text-5xl md:text-[68px] font-black leading-[1.02] mb-6 tracking-[-2.5px]">
-                <motion.span
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3 }}
-                  className="block text-white"
-                >Perawatan</motion.span>
+                
                 <motion.span
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.4 }}
                   className="block bg-gradient-to-r from-cyan-400 via-blue-400 to-violet-400 bg-clip-text text-transparent"
-                >Otobilaz Carwash & Detailing</motion.span>
+                >Carwash & Perawatan Elite</motion.span>
                 <motion.span
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.5 }}
                   className="block text-slate-600 text-4xl md:text-5xl font-bold mt-2"
-                ></motion.span>
+                >di Indonesia</motion.span>
               </h1>
 
               <motion.p
@@ -734,7 +726,7 @@ export default function App() {
               {[
                 { icon: Phone, label: "Telepon / WhatsApp", value: "+62 817 1717 3338", action: openWhatsApp, color: "text-emerald-400", bg: "bg-emerald-500/10 border-emerald-500/25" },
                 { icon: Mail, label: "Email", value: "otobilaz.id@gmail.com", action: () => window.open("mailto:otobilaz.id@gmail.com"), color: "text-cyan-400", bg: "bg-cyan-500/10 border-cyan-500/25" },
-                { icon: Instagram, label: "Instagram", value: "https://www.instagram.com/otobilaz.bks/", action: () => window.open("https://www.instagram.com/otobilaz.bks/", "_blank"), color: "text-violet-400", bg: "bg-violet-500/10 border-violet-500/25" },
+                { icon: Instagram, label: "Instagram", value: "@otobilaz.bks", action: () => window.open("https://www.instagram.com/otobilaz.bks/", "_blank"), color: "text-violet-400", bg: "bg-violet-500/10 border-violet-500/25" },
               ].map((c, i) => (
                 <motion.div key={c.label} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}>
                   <Card3D className="rounded-2xl" tilt={8}>
@@ -771,10 +763,7 @@ export default function App() {
       <footer className="py-10 px-4 md:px-16 border-t border-slate-200 bg-white/80">
         <div className="container mx-auto flex flex-col md:flex-row items-center justify-between gap-5">
           <a href="#" className="flex items-center gap-2">
-            <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center">
-              <Car className="w-3.5 h-3.5 text-white" />
-            </div>
-            <span className="font-black text-slate-900">OTOBILAZ</span>
+            <img src="/image/otobilaz_logo.png" alt="Otobilaz Logo" className="h-12 w-auto object-contain" />
           </a>
           <p className="text-[12px] text-slate-600">&copy; 2026 Otobilaz Tech. Hak Cipta Dilindungi.</p>
           <div className="flex items-center gap-6 text-[12px] text-slate-700">
