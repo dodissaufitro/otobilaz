@@ -4,6 +4,7 @@
  */
 
 import { useState, FormEvent, useRef, useCallback } from "react";
+import emailjs from "@emailjs/browser";
 import { motion, AnimatePresence, useMotionValue, useTransform, useSpring } from "motion/react";
 import {
   Car,
@@ -35,6 +36,11 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+
+// ── EmailJS Config ───────────────────────────────────────────────
+const EMAILJS_SERVICE_ID = "service_c1s4qpa";   // ganti dengan Service ID dari emailjs.com
+const EMAILJS_TEMPLATE_ID = "template_xtixwxk"; // ganti dengan Template ID dari emailjs.com
+const EMAILJS_PUBLIC_KEY = "T8N5YFYYd1SUnzTug";   // ganti dengan Public Key dari emailjs.com
 
 // ── Data ──────────────────────────────────────────────────────────
 const NAV_LINKS = [
@@ -210,11 +216,30 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
 export default function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [formStatus, setFormStatus] = useState<"idle" | "submitting" | "success">("idle");
+  const formRef = useRef<HTMLFormElement>(null);
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
+    if (!formRef.current) return;
     setFormStatus("submitting");
-    setTimeout(() => setFormStatus("success"), 1500);
+    const form = formRef.current;
+    const nameVal = (form.querySelector<HTMLInputElement>('[name="from_name"]')?.value ?? "").trim();
+    const emailVal = (form.querySelector<HTMLInputElement>('[name="from_email"]')?.value ?? "").trim();
+    const messageVal = (form.querySelector<HTMLTextAreaElement>('[name="message"]')?.value ?? "").trim();
+    emailjs
+      .send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          from_name: nameVal,
+          from_email: emailVal,
+          message: messageVal,
+          reply_to: emailVal,
+        },
+        { publicKey: EMAILJS_PUBLIC_KEY }
+      )
+      .then(() => setFormStatus("success"))
+      .catch(() => setFormStatus("idle"));
   };
 
   const openWhatsApp = () => {
@@ -443,6 +468,7 @@ export default function App() {
                     ) : (
                       <motion.form
                         key="form"
+                        ref={formRef}
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
@@ -455,15 +481,15 @@ export default function App() {
                         </div>
                         <div className="space-y-1.5">
                           <Label className="text-[11px] font-black uppercase tracking-widest text-slate-700">Nama Lengkap</Label>
-                          <Input placeholder="cth. Budi Santoso" className="bg-slate-50 border-slate-200 text-slate-900 placeholder:text-slate-500 h-11 rounded-xl focus-visible:border-cyan-500" required />
+                          <Input name="from_name" placeholder="cth. Budi Santoso" className="bg-slate-50 border-slate-200 text-slate-900 placeholder:text-slate-500 h-11 rounded-xl focus-visible:border-cyan-500" required />
                         </div>
                         <div className="space-y-1.5">
                           <Label className="text-[11px] font-black uppercase tracking-widest text-slate-700">Email</Label>
-                          <Input type="email" placeholder="budi@email.com" className="bg-slate-50 border-slate-200 text-slate-900 placeholder:text-slate-500 h-11 rounded-xl focus-visible:border-cyan-500" required />
+                          <Input type="email" name="from_email" placeholder="budi@email.com" className="bg-slate-50 border-slate-200 text-slate-900 placeholder:text-slate-500 h-11 rounded-xl focus-visible:border-cyan-500" required />
                         </div>
                         <div className="space-y-1.5">
                           <Label className="text-[11px] font-black uppercase tracking-widest text-slate-700">Pesan Singkat</Label>
-                          <Textarea placeholder="Ceritakan kebutuhan Anda..." className="bg-slate-50 border-slate-200 text-slate-900 placeholder:text-slate-500 min-h-[90px] rounded-xl resize-none focus-visible:border-cyan-500" required />
+                          <Textarea name="message" placeholder="Ceritakan kebutuhan Anda..." className="bg-slate-50 border-slate-200 text-slate-900 placeholder:text-slate-500 min-h-[90px] rounded-xl resize-none focus-visible:border-cyan-500" required />
                         </div>
                         <Button
                           type="submit"
